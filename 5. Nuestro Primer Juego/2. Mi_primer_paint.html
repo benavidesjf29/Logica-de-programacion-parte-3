@@ -1,0 +1,73 @@
+<canvas width = "600" height = "400" ></canvas>
+
+<script>
+
+	let pantalla = document.querySelector( "canvas" );
+	let pincel = pantalla.getContext( "2d" );
+	pincel.fillStyle = "grey";
+	pincel.fillRect( 0, 0, 600, 400 );
+
+	let puedoDibujar = false;
+	let colorPincel = [ "blue", "red", "green" ];
+
+	function dibujarCuadrado ( x, y, color ) {
+		pincel.fillStyle = color;
+		pincel.beginPath();
+		pincel.fillRect( x, y, 50, 50 )
+	}
+
+	function paletaDeColores () {
+		dibujarCuadrado( 0, 0, colorPincel[ 1 ] );
+		dibujarCuadrado( 50, 0, colorPincel[ 2 ] );
+		dibujarCuadrado( 100, 0, colorPincel[ 0 ] );
+	}
+
+	function dibujarCirculo( evento,color ) {
+		if (puedoDibujar) {
+			let x = evento.pageX - pantalla.offsetLeft;
+			let y = evento.pageY - pantalla.offsetTop;
+			if (( x <= 155 ) && ( x > -5 ) && ( y <= 55 ) &&
+			( y > -5 )) {
+			} else {
+				puedoDibujar = true
+				pincel.fillStyle = color;
+				pincel.beginPath();
+				pincel.arc( x, y, 5, 0, 2 * Math.PI );
+				pincel.fill();	
+			}	
+		}
+	}
+
+	pantalla.onmousemove = dibujarCirculo; //Capturar el movimiento del mouse.
+
+	function habilitarDibujar() {
+
+		puedoDibujar = true;
+	}
+
+	function deshabilitarDibujar() {
+
+		puedoDibujar = false;
+	}
+
+	function cambiarColorPincel( evento ) {
+		let x = evento.pageX - pantalla.offsetLeft;
+		let y = evento.pageY - pantalla.offsetTop;
+		if (( x <= 50 ) && ( x > 0 ) && ( y <= 50 ) &&
+			( y > 0 )) {
+			pincel.fillStyle = colorPincel[1];
+		}else if (( x <= 100 ) && ( x > 0 ) && ( y <= 100 ) &&
+			( y > 0 )) {
+			pincel.fillStyle = colorPincel[2];
+		}else if (( x <= 150 ) && ( x > 0 ) && ( y <= 150 ) &&
+			( y > 0 )) {
+			pincel.fillStyle = colorPincel[0];
+		}
+	}
+
+	pantalla.onclick = cambiarColorPincel; //Cambiar el color del pincel.
+	pantalla.onmousedown = habilitarDibujar; //Ejecutar el código cuando el mouse está presionado.
+	pantalla.onmouseup = deshabilitarDibujar//Ejecutar el código cuando se suelta el mouse.
+	paletaDeColores(); //Dibujar la paleta de colores en la pantalla
+
+</script>

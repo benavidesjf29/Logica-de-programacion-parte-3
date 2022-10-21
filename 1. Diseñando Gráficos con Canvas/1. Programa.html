@@ -1,0 +1,56 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	var pantalla = document.querySelector("canvas");
+	var pincel1 = pantalla.getContext("2d");
+
+	pincel1.fillStyle = "yellow";
+	pincel1.fillRect(0,0,600,200);
+	
+	pincel1.fillStyle = "blue";
+	pincel1.fillRect(0,200,600,300);
+
+	pincel1.fillStyle = "red";
+	pincel1.fillRect(0,300,600,400);
+
+	pincel1.fillStyle = "white";
+	pincel1.beginPath();
+	pincel1.moveTo(600,400);
+	pincel1.lineTo(525,350);
+	pincel1.lineTo(600,300);
+	pincel1.lineTo(525,250);
+	pincel1.lineTo(600,200);
+	pincel1.lineTo(525,150);
+	pincel1.lineTo(600,100);
+	pincel1.lineTo(525,50);
+	pincel1.lineTo(600,0);
+	pincel1.fill();
+	pincel1.beginPath();
+	pincel1.moveTo(0,0);
+	pincel1.lineTo(75,50);
+	pincel1.lineTo(0,100);
+	pincel1.lineTo(75,150);
+	pincel1.lineTo(0,200);
+	pincel1.lineTo(75,250);
+	pincel1.lineTo(0,300);
+	pincel1.lineTo(75,350);
+	pincel1.lineTo(0,400);
+	pincel1.fill();
+	
+	pincel1.fillStyle = "white";
+	
+	pincel1.beginPath(); pincel1.arc(300,20,15,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,50,10,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,80,15,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,110,10,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,140,15,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,170,10,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,200,15,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,230,10,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,260,15,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,290,10,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,320,15,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,350,10,0,2*Math.PI); pincel1.fill();
+	pincel1.beginPath(); pincel1.arc(300,380,15,0,2*Math.PI); pincel1.fill();
+
+</script>
